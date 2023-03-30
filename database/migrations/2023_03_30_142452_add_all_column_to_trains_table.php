@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::table('trains', function (Blueprint $table) {
             $table->string('Azienda');
-            $table->string('Stazione di partenza');
-            $table->string('Stazione di arrivo');
-            $table->dateTime('Orario di partenza', $precision = 0);
-            $table->dateTime('Orario di arrivo', $precision = 0);
-            $table->string('Codice treno');
-            $table->smallInteger('Numero carrozze')->nullable();
-            $table->boolean('In orario');
+            $table->string('Stazione_di_partenza');
+            $table->string('Stazione_di_arrivo');
+            $table->dateTime('Orario_di_partenza', $precision = 0);
+            $table->dateTime('Orario_di_arrivo', $precision = 0);
+            $table->string('Codice_treno');
+            $table->smallInteger('Numero_carrozze')->nullable();
+            $table->boolean('In_orario');
             $table->boolean('Cancellato');
         });
     }
@@ -35,13 +35,13 @@ return new class extends Migration
     {
         Schema::table('trains', function (Blueprint $table) {
             $table->dropColumn('Azienda');
-            $table->dropColumn('Stazione di partenza');
-            $table->dropColumn('Stazione di arrivo');
-            $table->dropColumn('Orario di partenza');
-            $table->dropColumn('Orario di arrivo');
-            $table->dropColumn('Codice treno');
-            $table->dropColumn('Numero carrozze');
-            $table->dropColumn('In orario');
+            $table->dropColumn('Stazione_di_partenza');
+            $table->dropColumn('Stazione_di_arrivo');
+            $table->dropColumn('Orario_di_partenza');
+            $table->dropColumn('Orario_di_arrivo');
+            $table->dropColumn('Codice_treno');
+            $table->dropColumn('Numero_carrozze');
+            $table->dropColumn('In_orario');
             $table->dropColumn('Cancellato');
         });
     }
