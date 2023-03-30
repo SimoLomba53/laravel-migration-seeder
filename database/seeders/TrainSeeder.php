@@ -7,6 +7,8 @@ use App\Models\Train;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
+use Faker\Generator as Faker;
+
 class TrainSeeder extends Seeder
 {
     /**
@@ -14,20 +16,20 @@ class TrainSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-        $new_train=new Train;
+        $train=new Train;
 
-        $new_train->Azienda = '';
-        $new_train->Stazione_di_partenza = '';
-        $new_train->Stazione_di_arrivo = 'aaa';
-        $new_train->Orario_di_partenza = '';
-        $new_train->Orario_di_arrivo = '';
-        $new_train->Codice_treno = '';
-        $new_train->Numero_carrozze = '5';
-        $new_train->In_orario = '';
-        $new_train->Cancellato = '';
+        $train->Azienda =$faker->word();
+        $train->Stazione_di_partenza =$faker->word();
+        $train->Stazione_di_arrivo =$faker->word();
+        $train->Orario_di_partenza =$faker->time();
+        $train->Orario_di_arrivo =$faker->time();
+        $train->Codice_treno =$faker->bankAccountNumber();;
+        $train->Numero_carrozze =$faker->numberBetween(0, 5);
+        $train->In_orario =$faker->boolean;
+        $train->Cancellato =$faker->boolean;
 
-        $new_train->save();
+        $train->save();
     }
 }
