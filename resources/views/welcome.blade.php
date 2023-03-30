@@ -1,27 +1,31 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
 
-  <title>Laravel 9 + Bootstrap Template</title>
-
-  {{-- Includiamo gli assets con la direttiva @vite --}}
-  @vite('resources/js/app.js')
+   @vite('resources/js/app.js')
 </head>
-
-<body>
-  <main>
-    <div class="container d-flex flex-column jumbotron align-items-center justify-content-center text-center">
-      <img class="my-1" src="{{ Vite::asset('resources/img/logo.png') }}" alt="">
-      <h1 class="my-1">
-        Laravel 9
-        <span class="fs-6 fw-light text-muted"> - Bootstrap Template</span>
-      </h1>
-
-    </div>
-  </main>
+<body class="bg-info">
+  <div>
+    <h1 class="text-center">BIGLIETTI TRENO</h1>
+  <div class="d-flex flex-row flex-wrap gap-5 align-items-center justify-content-center">
+    @foreach ($train as $singletrain)
+    <div class="bg-light w-25 text-center p-4">
+       <h4>Azienda:{{$singletrain['Azienda']}}</h1>
+       <p>Stazione di partenza:{{$singletrain['Stazione_di_partenza']}}</p>
+       <p>Stazione di arrivo:ì{{$singletrain['Stazione_di_arrivo']}}ì</p>
+       <p>Orario di partenza:{{$singletrain['Orario_di_partenza']}}</p>
+       <p>Orario di arrivo:{{$singletrain['Orario_di_arrivo']}}</p>
+       <p>COD:{{$singletrain['Codice_treno']}}</p>
+       <p>N.carrozze:{{$singletrain['Numero_carrozze']}}</p>
+       <p>e' in orario:{{$singletrain['In_orario'] }}</p>
+       <p>è cancellato:{{$singletrain['Cancellato']}}</p>
+      </div> 
+    @endforeach
+  </div>
+  </div>
 </body>
-
 </html>
